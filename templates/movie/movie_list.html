@@ -1,0 +1,11 @@
+<ul>
+    {% for post in object_list %}
+    <li>
+        <a href="{% url 'movie: movie_detail' post.pk %}">
+            {{ post.title }}
+        </a>
+    </li>
+   {% endfor %}
+</ul>
+
+<a href="{% url 'movie: movie_create'%}">업로드</a>

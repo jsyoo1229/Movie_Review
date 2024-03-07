@@ -1,0 +1,13 @@
+<p>{{obejct.title}}</p>
+<p>{{obejct.content}}</p>
+
+{% if post.file_upload %}
+<video src="{{object.file_upload.url}}" controls></video>
+{% endif %}
+
+<a href="{% url 'movie: movie_list' %}">목록</a>
+
+{% if user == object.author %}
+    <a href="{% url 'movie: movie_update' object.pk %}">수정</a>
+    <a href="{% url 'movie: movie_delete' object.pk %}">삭제</a>
+{% endif %}
