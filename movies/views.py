@@ -4,7 +4,8 @@ from django.views.generic import ListView, DeleteView, UpdateView, DetailView, C
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
 from django.urls import reverse_lazy
-
+from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
 
 class MovieListView(ListView):
     model = Post
@@ -61,3 +62,21 @@ class MovieDeleteView(UserPassesTestMixin, DeleteView):
 
 
 movie_delete = MovieDeleteView.as_view()
+
+
+def comment(request, pk):
+    post = Post.objects.get(pk=pk)
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.authot = request.user
+            comment.save()
+
+            return redirect('movie: movie_detail', pk)
+    else:
+        form = CommentForm()        
+    return render(request, 'movie/form.html', {
+        'form': form,
+    })       

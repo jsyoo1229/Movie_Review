@@ -11,3 +11,24 @@
     <a href="{% url 'movie: movie_update' object.pk %}">수정</a>
     <a href="{% url 'movie: movie_delete' object.pk %}">삭제</a>
 {% endif %}
+
+<hr>
+<section>
+    <h3>댓글</h3>
+    {% for comment in object.comments.all %}
+        <p>{{comment.message}}</p>
+        <p>{{comment.author}}</p>
+        <p>{{comment.updated_at}}</p>
+    {% endfor %}
+</section>
+
+<section>
+    <h3>댓글 작성</h3>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{comment_form.as_p}}
+        <input type="submit" value="댓글 작성">
+    </form>
+</section>
+
+
