@@ -8,5 +8,11 @@
 <body>
     <h1>Profile</h1>
     <p>{{user}}의 프로필</p>
+
+    <form action="{% url 'accounts:logout' %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="로그아웃">
+    </form>
+
 </body>
 </html>

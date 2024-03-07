@@ -13,7 +13,7 @@ class MovieListView(ListView):
     model = Post
 
     def get_queryset(self):
-        qs = super().get_quertset()
+        qs = super().get_queryset()
         q = self.request.GET.get('q', '')
         if q:
             qs = qs.filter(title__icontains=q)
@@ -27,7 +27,7 @@ class MovieCreateView(LoginRequiredMixin, CreateView):
     model = Post
     form_class = PostForm
     success_url = reverse_lazy('movie:post_list')
-    template_name = 'movie/form.html'
+    template_name = 'movies/form.html'
 
 
     def form_valid(self, form):
@@ -60,7 +60,7 @@ class MovieUpdateView(UserPassesTestMixin, UpdateView):
     model = Post
     form_class = PostForm
     success_url = reverse_lazy('movie:post_list')
-    template_name = 'movie/form.html'
+    template_name = 'movies/form.html'
 
     def test_func(self):
         return self.get_object().author == self.request.user    
@@ -90,10 +90,10 @@ def comment(request, pk):
             comment.authot = request.user
             comment.save()
 
-            return redirect('movie: movie_detail', pk)
+            return redirect('movie:movie_detail', pk)
     else:
         form = CommentForm()        
-    return render(request, 'movie/form.html', {
+    return render(request, 'movies/form.html', {
         'form': form,
     })       
 

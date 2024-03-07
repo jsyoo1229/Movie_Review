@@ -24,9 +24,9 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
     thumb_image = models.ImageField(
-        upload_to='tube/images/%Y/%m/%d/', blank=True)
+        upload_to='movies/images/%Y/%m/%d/', blank=True)
     file_upload = models.FileField(
-        upload_to='tube/files/%Y/%m/%d/', blank=True)
+        upload_to='movies/files/%Y/%m/%d/', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
     view_count = models.PositiveIntegerField(default=0)
