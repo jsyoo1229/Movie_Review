@@ -12,6 +12,14 @@ from django.contrib.auth.decorators import login_required
 class MovieListView(ListView):
     model = Post
 
+    def get_queryset(self):
+        qs = super().get_quertset()
+        q = self.request.GET.get('q', '')
+        if q:
+            qs = qs.filter(title__icontains=q)
+        return qs       
+        
+
 movie_list = MovieListView.as_view()
 
 
