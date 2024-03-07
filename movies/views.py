@@ -1,4 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.db.models.base import Model as Model
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.views.generic import ListView, DeleteView, UpdateView, DetailView, CreateView
 from .models import Post, Comment
@@ -36,6 +38,12 @@ class MovieDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['comment_form'] = CommentForm()
         return context
+    
+    def get_object(self, queryset = None):
+        pk = self.kwargs.get('pk')
+        post = Post.objects.get(pk = pk)
+        post.view_count += 1
+        return super().get_object(queryset)
 
 movie_detail = MovieDetailView.as_view()
 
@@ -63,7 +71,7 @@ class MovieDeleteView(UserPassesTestMixin, DeleteView):
 
 movie_delete = MovieDeleteView.as_view()
 
-
+@login_required
 def comment(request, pk):
     post = Post.objects.get(pk=pk)
     if request.method == 'POST':
@@ -80,3 +88,4 @@ def comment(request, pk):
     return render(request, 'movie/form.html', {
         'form': form,
     })       
+

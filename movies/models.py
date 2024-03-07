@@ -13,7 +13,7 @@ class Movie(models.Model):
     title = models.CharField(max_length=200)
     director = models.CharField(max_length=100)
     genres = models.ManyToManyField(Genre, related_name='movies')  # 다대다 관계
-
+    
     def __str__(self):
         return self.title
 
@@ -29,6 +29,7 @@ class Post(models.Model):
         upload_to='tube/files/%Y/%m/%d/', blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
+    view_count = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.title    

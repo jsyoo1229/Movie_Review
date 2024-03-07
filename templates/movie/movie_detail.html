@@ -1,6 +1,8 @@
 <p>{{obejct.title}}</p>
 <p>{{obejct.content}}</p>
 
+<p>조회수: {{object.view_count}}</p>
+
 {% if post.file_upload %}
 <video src="{{object.file_upload.url}}" controls></video>
 {% endif %}
