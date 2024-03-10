@@ -50,3 +50,19 @@ class Comment(models.Model):
     
     def __str__(self):
         return self.message    
+    
+
+
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
+    name = models.ForeignKey(User, on_delete=models.CASCADE)
+    message = models.TextField()  # 사용자가 입력한 이름
+    email = models.EmailField(blank=True, null=True)  # 사용자 이메일
+    website = models.URLField(blank=True, null=True)  # 사용자 웹사이트
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return self.message

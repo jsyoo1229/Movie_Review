@@ -71,7 +71,7 @@ movie_update = MovieUpdateView.as_view()
 
 class MovieDeleteView(UserPassesTestMixin, DeleteView):
     model = Post
-    success_url = reverse_lazy('movie:post_list')
+    success_url = reverse_lazy('movie:movie_list')
 
     def test_func(self):
         return self.get_object().author == self.request.user
