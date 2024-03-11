@@ -23,12 +23,12 @@
 		<div class="row">
 			<div class="col-md-9 col-sm-12 col-xs-12">
 				<div class="blog-detail-ct">
-					<h1>{{ obejct.title }}</h1>
-					<span class="time">{{ obejct.created_at }}</span>
+					<h1>{{ object.title }}</h1>
+					<span class="time">{{ object.created_at }}</span>
 
 					<div class="flex-it flex-ct">
-						{% if obejct.thumbnail_image %}
-							<img src="{{ obejct.thumbnail_image.url }}" alt="{{ obejct.title }}">
+						{% if object.thumbnail_image %}
+							<img src="{{ object.thumbnail_image.url }}" alt="{{ object.title }}">
 						{% endif %}
 
 						{% if object.file_upload %}
@@ -36,7 +36,16 @@
 						{% endif %}
 					</div>
 
-					<p>{{ obejct.content }}</p>
+					<p>{{ object.content }}</p>
+
+
+					<!-- 수정 및 삭제 버튼 -->
+					{% if request.user == object.author %}
+					<div>
+						<a href="{% url 'movie_update' object.id %}">Edit</a>
+						<a href="{% url 'movie_delete' object.id %}" onclick="return confirm('Are you sure?');">Delete</a>
+					</div>
+					{% endif %}
 					
 					
 					<!-- share link -->
@@ -99,7 +108,7 @@
 					<div class="comment-form">
 						<h4>Leave a comment</h4>
 
-						<form action="{% url 'comment_create' pk=obejct.pk %}" method="post">
+						<form action="{% url 'comment_create' pk=object.pk %}" method="post">
 							{% csrf_token %}
 							<div class="row">
 								<div class="col-md-12">

@@ -24,26 +24,28 @@
 	<meta name="format-detection" content="telephone-no">
 
 	<!-- CSS files -->
-	<link rel="stylesheet" href="css/plugins.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="{% static 'css/plugins.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
 <body>
 <!--preloading-->
 <div id="preloader">
-    <img class="logo" src="images/logo1.png" alt="" width="119" height="58">
+    <img class="logo" src="{% static 'images/logo1.png' %}" alt="" width="119" height="58">
     <div id="status">
         <span></span>
         <span></span>
     </div>
 </div>
 <!--end of preloading-->
+
 <!--login form popup-->
 <div class="login-wrapper" id="login-content">
     <div class="login-content">
         <a href="#" class="close">x</a>
         <h3>Login</h3>
-        <form method="post" action="login.php">
+        <form method="post">
+			{% csrf_token %}
         	<div class="row">
         		 <label for="username">
                     Username:
@@ -79,6 +81,7 @@
     </div>
 </div>
 <!--end of login form popup-->
+
 <!--signup form popup-->
 <div class="login-wrapper"  id="signup-content">
     <div class="login-content">
@@ -95,7 +98,7 @@
             <div class="row">
                 <label for="email-2">
                     your email:
-                    <input type="password" name="email" id="email-2" placeholder="" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+                    <input type="email" name="email" id="email-2" placeholder="" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
                 </label>
             </div>
              <div class="row">
@@ -295,9 +298,9 @@
 </footer>
 <!-- end of footer section-->
 
-<script src="js/jquery.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/plugins2.js"></script>
-<script src="js/custom.js"></script>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/plugins.js' %}"></script>
+<script src="{% static 'js/plugins2.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
 </body>
 </html>

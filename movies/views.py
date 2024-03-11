@@ -59,7 +59,7 @@ movie_detail = MovieDetailView.as_view()
 class MovieUpdateView(UserPassesTestMixin, UpdateView):
     model = Post
     form_class = PostForm
-    success_url = reverse_lazy('movie:post_list')
+    success_url = reverse_lazy('movie:movie_list')
     template_name = 'movies/form.html'
 
     def test_func(self):
