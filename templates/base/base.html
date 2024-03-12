@@ -43,8 +43,17 @@
 <div class="login-wrapper" id="login-content">
     <div class="login-content">
         <a href="#" class="close">x</a>
-        <h3>Login</h3>
-        <form method="post">
+
+		{% if user.is_authenticated %}
+		<!-- 로그인 성공 -->
+			<p>Welcome, {{ user.username }}!</p>
+		{% else %}
+			<!-- 로그인 하지 않은 상태 -->
+			<h3>Login</h3>
+		{% endif %}
+	
+		
+        <form action="{% url 'accounts:login' %}" method="post">
 			{% csrf_token %}
         	<div class="row">
         		 <label for="username">
@@ -56,7 +65,7 @@
             <div class="row">
             	<label for="password">
                     Password:
-                    <input type="password" name="password" id="password" placeholder="******" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+                    <input type="password" name="password" id="password" placeholder="******" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Za-z]).*$" required="required" />
                 </label>
             </div>
             <div class="row">
@@ -81,6 +90,8 @@
     </div>
 </div>
 <!--end of login form popup-->
+
+
 
 <!--signup form popup-->
 <div class="login-wrapper"  id="signup-content">
@@ -121,6 +132,7 @@
 </div>
 <!--end of signup form popup-->
 
+
 <!-- BEGIN | Header -->
 <header class="ht-header">
 	<div class="container">
@@ -135,7 +147,7 @@
 							<span></span>
 						</div>
 				    </div>
-				    <a href="index.html"><img class="logo" src="images/logo1.png" alt="" width="119" height="58"></a>
+				    <a href="/"><img class="logo" src="{% static 'images/logo1.png' %}" alt="" width="119" height="58"></a>
 			    </div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
@@ -143,15 +155,10 @@
 						<li class="hidden">
 							<a href="#page-top"></a>
 						</li>
-						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown">
-							Home <i class="fa fa-angle-down" aria-hidden="true"></i>
+						<li>
+							<a class="btn btn-default lv1"  href="/">
+							Home <i class="fa" aria-hidden="true"></i>
 							</a>
-							<ul class="dropdown-menu level1">
-								<li><a href="index.html">Home 01</a></li>
-								<li><a href="homev2.html">Home 02</a></li>
-								<li><a href="homev3.html">Home 03</a></li>
-							</ul>
 						</li>
 						<li class="dropdown first">
 							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
@@ -183,12 +190,13 @@
 						</li>
 						<li class="dropdown first">
 							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							news <i class="fa fa-angle-down" aria-hidden="true"></i>
+							Review <i class="fa fa-angle-down" aria-hidden="true"></i>
 							</a>
 							<ul class="dropdown-menu level1">
-								<li><a href="bloglist.html">blog List</a></li>
-								<li><a href="bloggrid.html">blog Grid</a></li>
-								<li class="it-last"><a href="blogdetail.html">blog Detail</a></li>
+								<li><a href="{% url 'movie:movie_list' %}">Review List</a></li>
+								{% comment %} <li><a href="{% url 'movie:movie_detail' object.pk  %}">Review Detail</a></li> {% endcomment %}
+								<li><a href="{% url 'movie:movie_create' %}">Write Reivew</a></li>
+								{% comment %} <li><a href="{% url 'movie:movie_detail' object.pk  %}">Review Detail</a></li> {% endcomment %}
 							</ul>
 						</li>
 						<li class="dropdown first">
@@ -215,8 +223,26 @@
 							</ul>
 						</li>                
 						<li><a href="#">Help</a></li>
-						<li class="loginLink"><a href="#">LOG In</a></li>
-						<li class="btn signupLink"><a href="#">sign up</a></li>
+
+						{% if user.is_authenticated %}
+						<!-- 로그인 성공 -->
+						<li><a href="{% url 'accounts:profile' %}">Welcome, {{ user.username }}!</a></li>
+						
+						<form action="{% url 'accounts:logout' %}" method="post">
+							{% csrf_token %}
+							<buttontype="submit" class="btn" >LogOut</buttontype=>
+						</form>						
+
+						{% else %}
+							<!-- 로그인 하지 않은 상태 -->
+							<li class="loginLink"><a href="#">LOG In</a></li>
+						{% endif %}	
+						
+						{% if not user.is_authenticated %}
+							<!-- 로그인 하지 않은 상태 -->
+							<li class="btn signupLink"><a href="#">sign up</a></li>
+						{% endif %}
+						
 					</ul>
 				</div>
 			<!-- /.navbar-collapse -->
@@ -244,7 +270,7 @@
 	<div class="container">
 		<div class="flex-parent-ft">
 			<div class="flex-child-ft item1">
-				 <a href="index.html"><img class="logo" src="images/logo1.png" alt=""></a>
+				 <a href="/"><img class="logo" src="{% static 'images/logo1.png' %}" alt=""></a>
 				 <p>5th Avenue st, manhattan<br>
 				New York, NY 10001</p>
 				<p>Call us: <a href="#">(+01) 202 342 6789</a></p>

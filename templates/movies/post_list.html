@@ -54,9 +54,13 @@
 			</div>
 			<div class="col-md-3 col-sm-12 col-xs-12">
 				<div class="sidebar">
-					<div class="sb-search sb-it">
+					<!-- 글쓰기 버튼 -->
+					<div class="sb-write sb-it">
+						<a href="{% url 'movie:movie_create' %}" class="sb-title">Write Reivew</a>
+					</div>
 
-						<!--  검색 --> 
+					<!--  검색 --> 
+					<div class="sb-search sb-it">
 						<h4 class="sb-title">Search</h4>
 						<form action="" method="get">
 						<input type="text" placeholder="Enter keywords" name="q" value='{{request.GET.q}}'>

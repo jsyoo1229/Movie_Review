@@ -34,11 +34,13 @@ signup = CreateView.as_view(
 
 login = LoginView.as_view(
     authentication_form = LoginForm,
-    template_name = 'accounts/form.html',
+    # success_url = reverse_lazy('movies/index')
+    # template_name = 'accounts/form.html',
+    # success_url = reverse_lazy('movie_list'),
 )
 
 logout = LogoutView.as_view(
-    next_page = '/accounts/login/'
+    next_page = '/'
 )
 
 @login_required

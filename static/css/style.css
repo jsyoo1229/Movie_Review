@@ -5422,11 +5422,13 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
 }
 @media (max-width: 767px) {
   .blog-detail-ct .flex-it {
     display: flex;
     flex-direction: column;
+    
   }
 }
 .blog-detail-ct .flex-it2 {
@@ -5436,6 +5438,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+
 }
 .blog-detail-ct .flex-ct img {
   margin-left: 30px;
@@ -5493,6 +5496,7 @@ ul {
 .blog-detail-ct .cmt-item .flex-it2 {
   margin-bottom: 15px;
   margin-top: 25px;
+  
 }
 .blog-detail-ct .cmt-item h6 {
   margin-right: 10px;
@@ -7860,6 +7864,7 @@ header .navbar-default .navbar-nav li a i {
   right: 0;
   margin-top: 3px;
 }
+
 header .navbar-default .navbar-nav li.btn a {
   background-color: #dd003f;
   color: #ffffff;
@@ -7868,6 +7873,8 @@ header .navbar-default .navbar-nav li.btn a {
   -moz-border-radius: 20px;
   border-radius: 20px;
 }
+
+
 header .navbar-default .navbar-nav .dropdown .dropdown-menu.level1 {
   position: absolute;
   min-width: 180px;
