@@ -122,19 +122,19 @@
 
 
 ## 4. 프로젝트 폴더 구조
-┣ 📂accounts
-┃ ┣ 📂migrations
-┃ ┣ 📂__pycache__
-┃ ┣ 📜.py
-┃ ┣ 📜admin.py
-┃ ┣ 📜apps.py
-┃ ┣ 📜forms.py
-┃ ┣ 📜models.py
-┃ ┣ 📜tests.py
-┃ ┣ 📜urls.py
-┃ ┣ 📜views.py
-┃ ┗ 📜__init__.py
-┣ 📂movies
+┣ 📂accounts <br>
+┃ ┣ 📂migrations <br> 
+┃ ┣ 📂__pycache__ <br>
+┃ ┣ 📜.py <br>
+┃ ┣ 📜admin.py <br>
+┃ ┣ 📜apps.py <br>
+┃ ┣ 📜forms.py <br>
+┃ ┣ 📜models.py <br>
+┃ ┣ 📜tests.py <br>
+┃ ┣ 📜urls.py <br>
+┃ ┣ 📜views.py <br>
+┃ ┗ 📜__init__.py <br>
+┣ 📂movies <br>
 ┃ ┣ 📂migrations
 ┃ ┣ 📂__pycache__
 ┃ ┣ 📜admin.py
