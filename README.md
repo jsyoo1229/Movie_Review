@@ -15,6 +15,7 @@
     </tr>
 </table>    
 
+
 * movies
 <table>
     <tr>
@@ -72,6 +73,7 @@
         <td>개봉 종료 영화 목록</td>
     </tr>
 </table>    
+
 
 * accounts
 <table>
