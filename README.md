@@ -188,10 +188,11 @@
 ![Movie_List](https://github.com/jsyoo1229/Movie_Review/assets/112743397/23124fb2-7f9e-4a64-a0ea-3490e3568633)
 
 * 리뷰 리스트
-  ![Review_Form](https://github.com/jsyoo1229/Movie_Review/assets/112743397/3d9e334b-e63a-4a04-906d-c7a9a915732f)
+![Review_List](https://github.com/jsyoo1229/Movie_Review/assets/112743397/7f44c5bc-c0d5-4215-b5e1-d3eb8340897b)
 
 * 리뷰 작성 폼
-![Review_List](https://github.com/jsyoo1229/Movie_Review/assets/112743397/7f44c5bc-c0d5-4215-b5e1-d3eb8340897b)
+![Review_Form](https://github.com/jsyoo1229/Movie_Review/assets/112743397/3d9e334b-e63a-4a04-906d-c7a9a915732f)
+
 
 
 ## 8. 데이터베이스 모델링(ERD)
