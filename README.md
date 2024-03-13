@@ -107,6 +107,19 @@
     </tr>
 </table>
 
+## 6. 와이어프레임
+*Home
+![Movie  Home](https://github.com/jsyoo1229/Movie_Review/assets/112743397/ebd2826f-916d-4c3a-b0a7-76efd655e2bc)
+
+* 영화 리스트
+![Movie  Movie_List](https://github.com/jsyoo1229/Movie_Review/assets/112743397/22ddf0a8-4a0e-45fa-8407-569d8fe22d21)
+
+* 리뷰 리스트
+![Movie  Review_List](https://github.com/jsyoo1229/Movie_Review/assets/112743397/5716f279-0c17-49c6-916e-00668ee89cc5)
+  
+* 리뷰 작성 폼
+![Movie  Review_Form](https://github.com/jsyoo1229/Movie_Review/assets/112743397/9eac70dc-9a48-43f1-bc12-e9e93c1cec8c)
+  
 
 
 ## 7. 데이터베이스 모델링(ERD)
