@@ -217,22 +217,3 @@ def comment(request, pk):
     )
 
 
-# import requests  # requests 라이브러리를 가져와, HTTP 요청을 보낼 수 있게 해줍니다.
-
-# from .models import Movie  # 현재 앱의 models.py에서 Movie 모델을 가져옵니다.
-
-# def fetch_and_store_movies():  # 현재 상영 중인 영화 데이터를 가져와 저장하는 함수입니다.
-#     url = "https://api.themoviedb.org/3/movie/now_playing?api_key=YOUR_API_KEY&language=en-US&page=1"  # TMDb API로부터 현재 상영 중인 영화 목록을 가져오는 URL입니다. 여기서 YOUR_API_KEY 부분을 실제 키로 바꿔야 합니다.
-
-#     response = requests.get(url)  # 위 URL로 HTTP GET 요청을 보내고, 응답을 response 변수에 저장합니다.
-#     data = response.json()  # 응답 데이터를 JSON 형식으로 파싱합니다.
-
-#     for item in data['results']:  # 응답 데이터 중 영화 목록을 순회합니다.
-#         movie = Movie(  # 각 영화 정보를 이용해 Movie 모델 인스턴스를 생성합니다.
-#             title=item['title'],  # 영화 제목
-#             genre=",".join([str(genre_id) for genre_id in item['genre_ids']]),  # 장르 ID를 문자열로 변환하여 저장합니다. 실제 사용 시 장르 이름으로 변환하는 것이 좋습니다.
-#             is_showing=True,  # 현재 상영 중임을 나타냅니다.
-#             image_url=f"https://image.tmdb.org/t/p/w500{item['poster_path']}",  # 영화 포스터 이미지 URL
-#             rating=item['vote_average']  # 영화 평점
-#         )
-#         movie.save()  # 생성한 Movie 인스턴스를 데이터베이스에 저장합니다.
