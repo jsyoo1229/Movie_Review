@@ -1,4 +1,4 @@
-## 3. URL 구조
+## 3. URL 구조 (모놀리식)
 * main
 <table>
     <tr>
@@ -14,7 +14,6 @@
         <td>메인 홈페이지</td>
     </tr>
 </table>    
-
 
 * movies
 <table>
@@ -74,7 +73,6 @@
     </tr>
 </table>    
 
-
 * accounts
 <table>
     <tr>
@@ -108,3 +106,45 @@
         <td>사용자 프로필</td>
     </tr>
 </table>
+
+
+
+## 7. 데이터베이스 모델링(ERD)
+erDiagram
+    User {
+        int id PK "Primary Key"
+        string username "Username"
+        string email "Email"
+    }
+    
+    Post {
+        int id PK "Primary Key"
+        int author_id FK "Foreign Key to User"
+        string title "Post Title"
+        string overview "Brief Overview, nullable"
+        string poster_path "Poster Path with default value"
+        url trailer_url "Trailer URL, nullable"
+        date release_date "Release Date, nullable"
+        text content "Main Content"
+        image thumb_image "Thumbnail Image, blank allowed"
+        file file_upload "File Upload, blank allowed"
+        datetime created_at "Creation Timestamp"
+        date updated_at "Last Update Date"
+        int view_count "View Count with default value"
+    }
+    
+    Comment {
+        int id PK "Primary Key"
+        int post_id FK "Foreign Key to Post"
+        int author_id FK "Foreign Key to User"
+        text message "Comment Message"
+        email email "Email, nullable and blank allowed"
+        url website "Website URL, nullable and blank allowed"
+        datetime created_at "Creation Timestamp"
+        date updated_at "Last Update Date"
+    }
+    
+    User ||--o{ Post : "has many"
+    Post ||--o{ Comment : "has many"
+    User ||--o{ Comment : "has many"
+
