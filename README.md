@@ -114,7 +114,7 @@
 
  ## 8. Architecture
 
- graph TD
+ ``graph TD
     subgraph config ["config (Project Level)"]
         urlsConfig["urls.py"]
         settings["settings.py"]
@@ -172,7 +172,7 @@
     class config,accounts,movies app;
     class User django;
     class urlsConfig,urlsAccounts,urlsMovies,settings file;
-    class viewsAccounts,viewsMovies,formsAccounts,formsMovies,modelsMovies code;
+    class viewsAccounts,viewsMovies,formsAccounts,formsMovies,modelsMovies code;``
 
 
 
