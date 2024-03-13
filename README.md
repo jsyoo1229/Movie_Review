@@ -164,7 +164,7 @@
 
 
 ## 5. 개발일정(WBS)
-![Movie_WBS](https://github.com/jsyoo1229/Movie_Review/assets/112743397/61ba031d-d99a-4c14-9c14-5bde6b7ea4f6)
+![Movie_WBS](https://github.com/jsyoo1229/Movie_Review/assets/112743397/faecd16f-a784-4d6f-ad6e-1c36bb3f5503)
 
 ## 6. 와이어프레임
 * Home
