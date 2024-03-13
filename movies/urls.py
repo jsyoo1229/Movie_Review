@@ -11,7 +11,6 @@ urlpatterns = [
     path("<int:pk>/update/", views.movie_update, name="movie_update"),
     path("<int:pk>/delete/", views.movie_delete, name="movie_delete"),
     path('comments/<int:pk>/', views.comment, name='comment_create'),
-    path('<int:movie_id>/', views.MovieDetailView.as_view(), name='theater_movie_detail'),
-    
-    # path("tag/<str:tag>/", views.movie_tag, name="movie_tag"),
+    path('theater/<int:pk>/', views.theater_movie, name='theater_movie_detail'), 
+    path('end_of_release_movies/', views.EOR_MovieList, name='EOR_MovieList'),
 ]

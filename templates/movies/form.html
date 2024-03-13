@@ -1,7 +1,65 @@
-<form action="" method="post" enctype= 'multipart/form-data'>
+
+{% extends 'base/base.html' %}
+{% block contents %}
+{% load static %}
+
+<div class="hero user-hero">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="hero-ct">
+					<h1>Review</h1>
+					<ul class="breadcumb">
+						<li class="active"><a href="#">REVIEW</a></li>
+						<li> <span class="ion-ios-arrow-right"></span>WRITE REVIEW</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="page-single">
+	<div class="container">
+		<div class="row ipad-width">
+            <div class="col-md-9 col-sm-12 col-xs-12">
+                <div class="form-style-1 user-pro">
+                    <form action="{% url 'movie:movie_create' %}" method="post" enctype="multipart/form-data" class="user">
+                        {% csrf_token %}
+                        <h4>Movie Review</h4>
+                        <div class="row">
+                            <div class="col-md-6 form-it">
+                                <label>title</label>
+                                <input type="text" name="title" id="title" placeholder="Enter title here" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 4px;">
+
+
+                                <label>content</label>
+                                <textarea name="content" rows="10" cols="50" style="resize: none; border: 2px solid #f0f0f0; border-radius: 4px; padding: 10px; font-size: 16px; width: 100%; max-width: 500px; height: 150px; box-sizing: border-box;" placeholder="Write your content here..."></textarea>
+
+                                <label>image</label>
+                                <input type="file" name="thumb_image" id="thumb_image" style="padding: 10px; margin: 10px 0;">
+
+
+                                <label>File</label>
+                                <input type="file" name="file_upload" id="file_upload" style="padding: 10px; margin: 10px 0;">
+
+                                <input class="submit" type="submit" value="save">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>                    
+        </div>                    
+    </div>                    
+</div>   
+
+
+{% comment %} <form action="" method="post" enctype= 'multipart/form-data'>
     {% csrf_token %}
     <table>
         {{ form.as_table }}
     </table>
     <input type="submit" value="올리기">
-</form>
+</form> {% endcomment %}
+
+{% endblock %}

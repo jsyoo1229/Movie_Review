@@ -28,6 +28,7 @@
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
+
 <body>
 <!--preloading-->
 <div id="preloader">
@@ -161,32 +162,7 @@
 							</a>
 						</li>
 						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							movies<i class="fa fa-angle-down" aria-hidden="true"></i>
-							</a>
-							<ul class="dropdown-menu level1">
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown" >Movie grid<i class="ion-ios-arrow-forward"></i></a>
-									<ul class="dropdown-menu level2">
-										<li><a href="moviegrid.html">Movie grid</a></li>
-										<li><a href="moviegridfw.html">movie grid full width</a></li>
-									</ul>
-								</li>			
-								<li><a href="movielist.html">Movie list</a></li>
-								<li><a href="moviesingle.html">Movie single</a></li>
-								<li class="it-last"><a href="seriessingle.html">Series single</a></li>
-							</ul>
-						</li>
-						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							celebrities <i class="fa fa-angle-down" aria-hidden="true"></i>
-							</a>
-							<ul class="dropdown-menu level1">
-								<li><a href="celebritygrid01.html">celebrity grid 01</a></li>
-								<li><a href="celebritygrid02.html">celebrity grid 02 </a></li>
-								<li><a href="celebritylist.html">celebrity list</a></li>
-								<li class="it-last"><a href="celebritysingle.html">celebrity single</a></li>
-							</ul>
+							<a href="{% url 'movie:EOR_MovieList' %}" class="btn btn-default" >Movie list</a>
 						</li>
 						<li class="dropdown first">
 							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
@@ -200,15 +176,7 @@
 							</ul>
 						</li>
 						<li class="dropdown first">
-							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							community <i class="fa fa-angle-down" aria-hidden="true"></i>
-							</a>
-							<ul class="dropdown-menu level1">
-								<li><a href="userfavoritegrid.html">user favorite grid</a></li>
-								<li><a href="userfavoritelist.html">user favorite list</a></li>
-								<li><a href="userprofile.html">user profile</a></li>
-								<li class="it-last"><a href="userrate.html">user rate</a></li>
-							</ul>
+							<a href="{% url 'accounts:profile' %}" class="btn btn-default">user profile</a>
 						</li>
 					</ul>
 					<ul class="nav navbar-nav flex-child-menu menu-right">
@@ -230,7 +198,7 @@
 						
 						<form action="{% url 'accounts:logout' %}" method="post">
 							{% csrf_token %}
-							<buttontype="submit" class="btn" >LogOut</buttontype=>
+							<button type="submit" class="btn">LogOut</button>
 						</form>						
 
 						{% else %}
@@ -249,13 +217,16 @@
 	    </nav>
 	    
 	    <!-- top search form -->
-	    <div class="top-search">
-	    	<select>
-				<option value="united">TV show</option>
-				<option value="saab">Others</option>
-			</select>
-			<input type="text" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
-	    </div>
+	    	<div>
+				<form action="{% url 'movie:EOR_MovieList' %}" method="get" class='top-search'> 
+					{% comment %} <select class="custom-select" name="category">
+						<option value="movies">Movies</option>
+						<option value="reviews">Reviews</option>
+					</select>  {% endcomment %}
+					<input class="custom-input" type="text" name="q" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
+					<input class="custom-input" type="submit" value="Search">
+				</form> 
+	   		 </div>
 	</div>
 </header>
 <!-- END | Header -->

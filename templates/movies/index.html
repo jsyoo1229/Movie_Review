@@ -8,7 +8,7 @@
 		<div class="row">
 			<div class="title-hd">
 				<h2>in theater</h2>
-				<a href="#" class="viewall">View all <i class="ion-ios-arrow-right"></i></a>
+				<a href="{% url 'movie:EOR_MovieList' %}" class="viewall">View all <i class="ion-ios-arrow-right"></i></a>
 			</div>
 			<div class="social-link">
 				<p>Follow us: </p>
@@ -21,115 +21,20 @@
 
 				{% for movie in now_playing_movies %}
 	    		<div class="movie-item">
-	    			<div class="mv-img">
-	    				<a href="{% url 'movie:theater_movie_detail' movie_id=movie.id %}"><img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}" width="285" height="437"></a>
+	    			<div>
+	    				<a href="{% url 'movie:theater_movie_detail' pk=movie.id %}"><img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}" width="285" height="437"></a>
 	    			</div>
 	    			<div class="title-in">
 	    				<div class="cate">
 	    					<span class="blue"><a href="#">{{ movie.genre_names|join:", " }}</a></span>
 	    				</div>
-	    				<h6><a href="#">{{ movie.title }}</a></h6>
+	    				<h6><a href="{% url 'movie:theater_movie_detail' pk=movie.id %}">{{ movie.title }}</a></h6>
 	    				<p><i class="ion-android-star"></i><span>{{ movie.vote_average }}</span> /10</p>
 	    			</div>
 	    		</div>
 				{% endfor %}
 
-				{% comment %} <div class="movie-item">
-	    			<div class="mv-img">
-	    				<a href="#"><img src="{% static 'images/uploads/slider2.jpg' %}" alt="" width="285" height="437"></a>
-	    			</div>
-	    			<div class="title-in">
-	    				<div class="cate">
-	    					<span class="yell"><a href="#">action</a></span>
-	    				</div>
-	    				<h6><a href="#">The revenant</a></h6>
-	    				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
-	    			</div>
-	    		</div>
-	    		<div class="movie-item">
-	    			<div class="mv-img">
-	    				<a href="#"><img src="{% static 'images/uploads/slider3.jpg' %}" alt="" width="285" height="437"></a>
-	    			</div>
-	    			<div class="title-in">
-	    				<div class="cate">
-	    					<span class="green"><a href="#">comedy</a></span>
-	    				</div>
-	    				<h6><a href="#">Die hard</a></h6>
-	    				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
-	    			</div>
-	    		</div>
-	    		<div class="movie-item">
-	    			<div class="mv-img">
-	    				<a href="#"><img src="{% static 'images/uploads/slider4.jpg' %}" alt="" width="285" height="437"></a>
-	    			</div>
-	    			<div class="title-in">
-	    				<div class="cate">
-	    					<span class="blue"><a href="#">Sci-fi</a></span> <span class="orange"><a href="#">advanture</a></span>
-	    				</div>
-	    				<h6><a href="#">The walk</a></h6>
-	    				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
-	    			</div>
-	    		</div>
-	    		<div class="movie-item">
-	    			<div class="mv-img">
-	    				<a href="#"><img src="{% static 'images/uploads/slider1.jpg' %}" alt="" width="285" height="437"></a>
-	    			</div>
-	    			<div class="title-in">
-	    				<div class="cate">
-	    					<span class="blue"><a href="#">Sci-fi</a></span>
-	    				</div>
-	    				<h6><a href="#">Interstellar</a></h6>
-	    				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
-	    			</div>
-	    		</div>
-				<div class="movie-item">
-	    			<div class="mv-img">
-	    				<a href="#"><img src="{% static 'images/uploads/slider2.jpg' %}" alt="" width="285" height="437"></a>
-	    			</div>
-	    			<div class="title-in">
-	    				<div class="cate">
-	    					<span class="yell"><a href="#">action</a></span>
-	    				</div>
-	    				<h6><a href="#">The revenant</a></h6>
-	    				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
-	    			</div>
-	    		</div>
-	    		<div class="movie-item">
-	    			<div class="mv-img">
-	    				<img src="{% static 'images/uploads/slider3.jpg' %}" alt="" width="285" height="437">
-	    			</div>
-	    			<div class="title-in">
-	    				<div class="cate">
-	    					<span class="green"><a href="#">comedy</a></span>
-	    				</div>
-	    				<h6><a href="#">Die hard</a></h6>
-	    				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
-	    			</div>
-	    		</div>
-	    		<div class="movie-item">
-	    			<div class="mv-img">
-	    				<img src="{% static 'images/uploads/slider4.jpg' %}" alt="" width="285" height="437">
-	    			</div>
-	    			<div class="title-in">
-	    				<div class="cate">
-	    					<span class="blue"><a href="#">Sci-fi</a></span> <span class="orange"><a href="#">advanture</a></span>
-	    				</div>
-	    				<h6><a href="#">The walk</a></h6>
-	    				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
-	    			</div>
-	    		</div>
-	    		<div class="movie-item">
-	    			<div class="mv-img">
-	    				<img src="{% static 'images/uploads/slider3.jpg' %}" alt="" width="285" height="437">
-	    			</div>
-	    			<div class="title-in">
-	    				<div class="cate">
-	    					<span class="green"><a href="#">comedy</a></span>
-	    				</div>
-	    				<h6><a href="#">Die hard</a></h6>
-	    				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
-	    			</div>
-	    		</div>  {% endcomment %}
+		
 	    	</div>
 	    </div>
 	</div>
@@ -1001,7 +906,7 @@
 		</div>
 	</div>
 </div> {% endcomment %}
-
+<!--
 <div class="trailers">
 	<div class="container">
 		<div class="row ipad-width">
@@ -1009,41 +914,43 @@
 				<div class="title-hd">
 					<h2>in theater</h2>
 					<a href="#" class="viewall">View all <i class="ion-ios-arrow-right"></i></a>
-				</div>
+				</div>-->
+<!-- 
 				<div class="videos">
-				 	<div class="slider-for-2 video-ft">
+				 	<div class="slider-for-2 video-ft"> -->
+
+						<!-- trailers -->
+						<!-- 
+						{% for trailer_url in trailers %}
+						<video width="320" height="240" controls>
+						<source src="{{ trailer_url }}" type="video/mp4">
+						</video>
+					</div>	
+				</div>		
+-->
+<!-- 
 				 		<div>
-					    	<iframe class="item-video" src="" data-src="https://www.youtube.com/embed/1Q8fG0TtVAY"></iframe>
+					    	<iframe class="item-video" src="" data-src="{{ trailer_url }}"></iframe> 
 					    </div>
-					    <div>
-					    	<iframe class="item-video" src="" data-src="https://www.youtube.com/embed/w0qQkSuWOS8"></iframe>
-					    </div>
-					    <div>
-					    	<iframe class="item-video" src="" data-src="https://www.youtube.com/embed/44LdLqgOpjo"></iframe>
-					    </div>
-					    <div>
-					    	<iframe class="item-video" src="" data-src="https://www.youtube.com/embed/gbug3zTm3Ws"></iframe>
-					    </div>
-					    <div>
-					    	<iframe class="item-video" src="" data-src="https://www.youtube.com/embed/e3Nl_TCQXuw"></iframe>
-					    </div>
-					    <div>
-					    	<iframe class="item-video" src="" data-src="https://www.youtube.com/embed/NxhEZG0k9_w"></iframe>
-					    </div>
-						
-						
-					</div>
+						{% endfor %}
+					-->
+
+					<!--
 					<div class="slider-nav-2 thumb-ft">
+
+						{% for movie in now_playing_movies %}
 						<div class="item">
 							<div class="trailer-img">
-								<img src="{% static 'images/uploads/trailer7.jpg' %}"  alt="photo by Barn Images" width="4096" height="2737">
+								<img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}" width="4096" height="2737">
 							</div>
 							<div class="trailer-infor">
-	                        	<h4 class="desc">Wonder Woman</h4>
+	                        	<h4 class="desc">{{ movie.title }}</h4>
 	                        	<p>2:30</p>
 	                        </div>
 						</div>
-						<div class="item">
+						{% endfor %}
+						
+						{% comment %} <div class="item">
 							<div class="trailer-img">
 								<img src="{% static 'images/uploads/trailer2.jpg' %}"  alt="photo by Barn Images" width="350" height="200">
 							</div>
@@ -1087,16 +994,18 @@
 	                        	<h4 class="desc">Fast&Furious 8</h4>	
 	                        	<p>3:11</p>
 	                        </div>	
-						</div>
+						</div> {% endcomment %}
 					
 					</div>
+
 				</div>   
 			</div>
 		</div>
 	</div>
 </div>
+-->
 
-<!-- latest new v1 section-->
+<!-- latest new v1 section
 <div class="latestnew">
 	<div class="container">
 		<div class="row ipad-width">
