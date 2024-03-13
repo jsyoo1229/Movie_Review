@@ -110,43 +110,71 @@
 
 
 ## 7. 데이터베이스 모델링(ERD)
-* erDiagram
-    User {
-        int id PK "Primary Key"
-        string username "Username"
-        string email "Email"
-    }
-    
-    Post {
-        int id PK "Primary Key"
-        int author_id FK "Foreign Key to User"
-        string title "Post Title"
-        string overview "Brief Overview, nullable"
-        string poster_path "Poster Path with default value"
-        url trailer_url "Trailer URL, nullable"
-        date release_date "Release Date, nullable"
-        text content "Main Content"
-        image thumb_image "Thumbnail Image, blank allowed"
-        file file_upload "File Upload, blank allowed"
-        datetime created_at "Creation Timestamp"
-        date updated_at "Last Update Date"
-        int view_count "View Count with default value"
-    }
-    
-    Comment {
-        int id PK "Primary Key"
-        int post_id FK "Foreign Key to Post"
-        int author_id FK "Foreign Key to User"
-        text message "Comment Message"
-        email email "Email, nullable and blank allowed"
-        url website "Website URL, nullable and blank allowed"
-        datetime created_at "Creation Timestamp"
-        date updated_at "Last Update Date"
-    }
-    
-    User ||--o{ Post : "has many"
-    Post ||--o{ Comment : "has many"
-    User ||--o{ Comment : "has many"
+![Movie_ERD](https://github.com/jsyoo1229/Movie_Review/assets/112743397/4321c32a-2174-4d09-9c8a-f93531ee2acd)
+
+ ## 8. Architecture
+
+ graph TD
+    subgraph config ["config (Project Level)"]
+        urlsConfig["urls.py"]
+        settings["settings.py"]
+    end
+
+    subgraph accounts ["accounts App"]
+        urlsAccounts["urls.py"]
+        viewsAccounts["views.py"]
+        formsAccounts["forms.py"]
+        modelsUser["User (Django Auth Model)"]
+    end
+
+    subgraph movies ["movies App"]
+        urlsMovies["urls.py"]
+        viewsMovies["views.py"]
+        formsMovies["forms.py"]
+        modelsMovies["models.py"]
+    end
+
+    urlsConfig --> urlsAccounts
+    urlsConfig --> urlsMovies
+    urlsConfig --> HomeView
+    urlsConfig --> staticFiles{"static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)"}
+
+    urlsAccounts --> signup
+    urlsAccounts --> login
+    urlsAccounts --> logout
+    urlsAccounts --> profile
+
+    urlsMovies --> movie_list
+    urlsMovies --> movie_detail
+    urlsMovies --> movie_create
+    urlsMovies --> movie_update
+    urlsMovies --> movie_delete
+    urlsMovies --> comment_create["comments/<int:pk>/"]
+    urlsMovies --> theater_movie_detail["theater/<int:pk>/"]
+    urlsMovies --> EOR_MovieList["end_of_release_movies/"]
+
+    viewsAccounts --> formsAccounts
+    viewsAccounts --> modelsUser
+
+    viewsMovies --> formsMovies
+    viewsMovies --> modelsMovies
+
+    formsAccounts --> modelsUser
+    formsMovies --> modelsMovies
+
+    modelsMovies --> modelsUser
+
+    classDef app fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef django fill:#bbf,stroke:#333,stroke-width:2px;
+    classDef file fill:#dfd,stroke:#333,stroke-width:2px;
+    classDef code fill:#ffd,stroke:#333,stroke-width:4px;
+
+    class config,accounts,movies app;
+    class User django;
+    class urlsConfig,urlsAccounts,urlsMovies,settings file;
+    class viewsAccounts,viewsMovies,formsAccounts,formsMovies,modelsMovies code;
+
+
 
 
 
