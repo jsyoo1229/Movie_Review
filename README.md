@@ -108,7 +108,7 @@
 </table>
 
 ## 6. 와이어프레임
-*Home
+* Home
 ![Movie  Home](https://github.com/jsyoo1229/Movie_Review/assets/112743397/ebd2826f-916d-4c3a-b0a7-76efd655e2bc)
 
 * 영화 리스트
