@@ -135,30 +135,30 @@
 ┃ ┣ 📜views.py <br>
 ┃ ┗ 📜__init__.py <br>
 ┣ 📂movies <br>
-┃ ┣ 📂migrations
-┃ ┣ 📂__pycache__
-┃ ┣ 📜admin.py
-┃ ┣ 📜apps.py
-┃ ┣ 📜forms.py
-┃ ┣ 📜models.py
-┃ ┣ 📜tests.py
-┃ ┣ 📜urls.py
-┃ ┣ 📜views.py
-┃ ┗ 📜__init__.py
-┣ 📂static
-┃ ┣ 📂css
-┃ ┣ 📂fonts
-┃ ┣ 📂images
-┃ ┣ 📂js
-┣ 📂templates
-┃ ┣ 📂accounts
-┃ ┣ 📂base
-┃ ┣ 📂movies
-┣ 📂venv
-┣📜.gitignore
-┣ 📜db.sqlite3
-┣ 📜manage.py
-┣ 📜README.md
+┃ ┣ 📂migrations <br>
+┃ ┣ 📂__pycache__ <br>
+┃ ┣ 📜admin.py <br>
+┃ ┣ 📜apps.py <br>
+┃ ┣ 📜forms.py <br>
+┃ ┣ 📜models.py <br>
+┃ ┣ 📜tests.py <br>
+┃ ┣ 📜urls.py <br>
+┃ ┣ 📜views.py <br>
+┃ ┗ 📜__init__.py <br>
+┣ 📂static <br>
+┃ ┣ 📂css <br>
+┃ ┣ 📂fonts <br>
+┃ ┣ 📂images <br>
+┃ ┣ 📂js <br>
+┣ 📂templates <br>
+┃ ┣ 📂accounts <br>
+┃ ┣ 📂base <br>
+┃ ┣ 📂movies <br>
+┣ 📂venv <br>
+┣📜.gitignore <br>
+┣ 📜db.sqlite3 <br>
+┣ 📜manage.py <br>
+┣ 📜README.md <br>
 ┗ 📜requirements.txt
 
 
