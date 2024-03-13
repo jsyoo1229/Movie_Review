@@ -1,5 +1,5 @@
 ## 3. URL 구조
-
+* main
 <table>
     <tr>
         <th>URL</th>
@@ -12,6 +12,16 @@
         <td>HomeView</td>
         <td>home.html (예시)</td>
         <td>메인 홈페이지</td>
+    </tr>
+</table>    
+
+* movies
+<table>
+    <tr>
+        <th>URL</th>
+        <th>Function</th>
+        <th>HTML File Name</th>
+        <th>Note</th>
     </tr>
     <tr>
         <td>'movies/'</td>
@@ -60,6 +70,16 @@
         <td>EOR_MovieList</td>
         <td>EOR_movie_list.html (예시)</td>
         <td>개봉 종료 영화 목록</td>
+    </tr>
+</table>    
+
+* accounts
+<table>
+    <tr>
+        <th>URL</th>
+        <th>Function</th>
+        <th>HTML File Name</th>
+        <th>Note</th>
     </tr>
     <tr>
         <td>'accounts/signup/'</td>
