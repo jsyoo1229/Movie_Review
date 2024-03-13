@@ -10,7 +10,7 @@
     <tr>
         <td>'/'</td>
         <td>HomeView</td>
-        <td>home.html (예시)</td>
+        <td>index.html</td>
         <td>메인 홈페이지</td>
     </tr>
 </table>    
@@ -26,32 +26,32 @@
     <tr>
         <td>'movies/'</td>
         <td>movie_list</td>
-        <td>movie_list.html</td>
-        <td>영화 목록</td>
+        <td>post_list.html</td>
+        <td>리뷰 목록</td>
     </tr>
     <tr>
         <td>'movies/&lt;int:pk&gt;/'</td>
         <td>movie_detail</td>
-        <td>movie_detail.html</td>
-        <td>영화 상세 정보</td>
+        <td>post_detail.html</td>
+        <td>리뷰 상세 정보</td>
     </tr>
     <tr>
         <td>'movies/create/'</td>
         <td>movie_create</td>
-        <td>movie_form.html (예시)</td>
-        <td>영화 생성</td>
+        <td>form.html</td>
+        <td>리뷰 생성</td>
     </tr>
     <tr>
         <td>'movies/&lt;int:pk&gt;/update/'</td>
         <td>movie_update</td>
-        <td>movie_form.html (예시)</td>
-        <td>영화 수정</td>
+        <td>form.html</td>
+        <td>리뷰 수정</td>
     </tr>
     <tr>
         <td>'movies/&lt;int:pk&gt;/delete/'</td>
         <td>movie_delete</td>
-        <td>-</td>
-        <td>영화 삭제</td>
+        <td>post_confirm_delete.html</td>
+        <td>리뷰 삭제</td>
     </tr>
     <tr>
         <td>'movies/comments/&lt;int:pk&gt;/'</td>
@@ -62,13 +62,13 @@
     <tr>
         <td>'movies/theater/&lt;int:pk&gt;/'</td>
         <td>theater_movie</td>
-        <td>theater_movie_detail.html (예시)</td>
+        <td>movie_detail.html</td>
         <td>극장 상영 영화 상세 정보</td>
     </tr>
     <tr>
         <td>'movies/end_of_release_movies/'</td>
         <td>EOR_MovieList</td>
-        <td>EOR_movie_list.html (예시)</td>
+        <td>EOR_movie_list.html</td>
         <td>개봉 종료 영화 목록</td>
     </tr>
 </table>    
@@ -84,13 +84,13 @@
     <tr>
         <td>'accounts/signup/'</td>
         <td>signup</td>
-        <td>signup.html (예시)</td>
+        <td>form.html</td>
         <td>회원가입</td>
     </tr>
     <tr>
         <td>'accounts/login/'</td>
         <td>login</td>
-        <td>login.html (예시)</td>
+        <td>form.html</td>
         <td>로그인</td>
     </tr>
     <tr>
@@ -102,7 +102,7 @@
     <tr>
         <td>'accounts/profile/'</td>
         <td>profile</td>
-        <td>profile.html (예시)</td>
+        <td>profile.html</td>
         <td>사용자 프로필</td>
     </tr>
 </table>
