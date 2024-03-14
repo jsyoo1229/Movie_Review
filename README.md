@@ -7,6 +7,9 @@
 리뷰 작성 기능: 사용자가 직접 영화 리뷰를 남길 수 있습니다.
 사용자 인터랙션 기능 제공: 사용자가 회원가입, 로그인, 프로필 관리, 검색 등의 기능을 통해 서비스와 상호작용할 수 있게 합니다.
 
+## 1.2 개발 환경
+Django, html, css, js, bootstrap, TMDB API
+
 
 ## 2. URL 구조 (모놀리식)
 * main
@@ -183,6 +186,12 @@
 ## 7. 화면 설계  
 * Home
 ![Home](https://github.com/jsyoo1229/Movie_Review/assets/112743397/14400be2-be16-487c-8e02-5a178f2b227d)
+
+*로그인
+![LogIn](https://github.com/jsyoo1229/Movie_Review/assets/112743397/f70595a2-af63-49b3-bd75-00322338ba24)
+
+*회원가입
+![SignUp](https://github.com/jsyoo1229/Movie_Review/assets/112743397/8d3ab81f-e422-45d2-b313-41ba35c10dfb)
 
 * 영화 리스트
 ![Movie_List](https://github.com/jsyoo1229/Movie_Review/assets/112743397/23124fb2-7f9e-4a64-a0ea-3490e3568633)
